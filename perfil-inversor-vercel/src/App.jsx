@@ -218,7 +218,7 @@ export default function InvestorQuestionnaire() {
   const [clientPhone, setClientPhone] = useState("");
   const [clientBirth, setClientBirth] = useState("");
   const [sending, setSending] = useState(false);
-  const [webhookUrl, setWebhookUrl] = useState("");
+  const [webhookUrl, setWebhookUrl] = useState("https://script.google.com/macros/s/AKfycby0uwX3aFejtJlP1yFxw6i8qVoHrSBXaH3a9KSgSE3Xt3yuf_MBnPISudLojiXuLtOs/exec");
   const [configMode, setConfigMode] = useState(false);
   const containerRef = useRef(null);
 
@@ -282,19 +282,6 @@ export default function InvestorQuestionnaire() {
             onMouseEnter={e => e.target.style.transform = "scale(1.03)"}
             onMouseLeave={e => e.target.style.transform = "scale(1)"}
           >Comenzar</button>
-          <div style={{ marginTop: 40 }}>
-            <button onClick={() => setConfigMode(!configMode)} style={{ background: "none", border: "none", color: "#475569", fontSize: 11, cursor: "pointer", textDecoration: "underline" }}>
-              {configMode ? "Ocultar configuración" : "⚙️ Configurar Google Sheets (asesor)"}
-            </button>
-            {configMode && (
-              <div style={{ marginTop: 12, textAlign: "left", background: "#1e293b", borderRadius: 8, padding: 16 }}>
-                <p style={{ color: "#94a3b8", fontSize: 11, marginBottom: 8 }}>Pegá tu URL de Google Apps Script:</p>
-                <input value={webhookUrl} onChange={e => setWebhookUrl(e.target.value)} placeholder="https://script.google.com/macros/s/..."
-                  style={{ width: "100%", padding: "8px 12px", fontSize: 12, background: "#0f172a", color: "#e2e8f0", border: "1px solid #334155", borderRadius: 6, fontFamily: "monospace", boxSizing: "border-box" }} />
-                <p style={{ color: "#64748b", fontSize: 10, marginTop: 6 }}>Si no configurás webhook, el cuestionario funciona igual pero no guarda en Sheets.</p>
-              </div>
-            )}
-          </div>
         </div>
       </div>
     );
